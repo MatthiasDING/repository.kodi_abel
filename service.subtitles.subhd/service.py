@@ -45,9 +45,9 @@ def Search( item ):
         search_string = ("%s S%.2dE%.2d" % (item['tvshow'],
                                                 int(item['season']),
                                                 int(item['episode']),)
-                                              ).replace(" ","+")      
+                                              ).replace(" ","+").replace("(","").replace(")","")      
     else:    
-        search_string = item['title'].replace(" ","+") 
+        search_string = item['title'].replace(" ","+").replace("(","").replace(")","")    
     
     url = SUBHD_API % (search_string)
 #    print url
