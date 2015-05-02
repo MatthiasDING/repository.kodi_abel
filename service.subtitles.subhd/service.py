@@ -194,8 +194,8 @@ if params['action'] == 'search' or params['action'] == 'manualsearch':
         item['3let_language'].append(xbmc.convertLanguage(lang,xbmc.ISO_639_2))
 
     if item['title'] == "":
-        item['title']  = xbmc.getInfoLabel("VideoPlayer.Title")                       # no original title, get just Title
-        if item['title'] == os.path.basename(xbmc.Player().getPlayingFile()):         # get movie title and year if is filename
+        item['title']  = normalizeString(xbmc.getInfoLabel("VideoPlayer.Title"))                       # no original title, get just Title
+        if item['title'] == urllib.unquote(os.path.basename(xbmc.Player().getPlayingFile())):         # get movie title and year if is filename
             title, year = xbmc.getCleanMovieTitle(item['title'])
             item['title'] = normalizeString(title.replace('[','').replace(']',''))
             item['year'] = year
