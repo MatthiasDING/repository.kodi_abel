@@ -109,7 +109,7 @@ def Download(url):
         data = socket.read()
         soup = BeautifulSoup(data, "html.parser")
         id = soup.find("button", class_="btn btn-danger btn-sm").get("sid").encode('utf-8')
-        url = "http://www.subhd.com/ajax/down_ajax"
+        url = "http://subhd.com/ajax/down_ajax"
         values = {'sub_id':id}
         data = urllib.urlencode(values)
         req = urllib2.Request(url, data)
